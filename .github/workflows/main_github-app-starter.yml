@@ -21,9 +21,10 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, lint, build, and test
         run: |
           npm install
+          npm lint --if-present
           npm run build --if-present
           npm run test --if-present
 
@@ -53,7 +54,7 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -68,4 +69,3 @@ jobs:
           app-name: 'github-app-starter'
           slot-name: 'Production'
           package: .
-          
