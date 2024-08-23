@@ -18,7 +18,7 @@ This sample app showcases how webhooks can be used with a GitHub App's installat
 3. Install dependencies with `npm install`.
 4. Start the server with `npm run server`.
 5. Ensure your server is reachable from the internet.
-    - If you're using `smee`, run `smee -u <smee_url> -t http://localhost:3000/api/webhook`.
+   - If you're using `smee`, run `smee -u <smee_url> -t http://localhost:3000/api/webhook`.
 6. Ensure your GitHub App includes at least one repository on its installations.
 
 ## Usage
