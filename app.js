@@ -68,7 +68,7 @@ app.webhooks.onError((error) => {
 })
 
 // Launch a web server to listen for GitHub webhooks
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost'
 
 const path = '/api/webhook'
