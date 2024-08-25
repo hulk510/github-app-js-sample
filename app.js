@@ -17,11 +17,11 @@ const messageForNewPRs = fs.readFileSync('./message.md', 'utf8')
 
 // Create an authenticated Octokit client authenticated as a GitHub App
 const app = new App({
-  appId,
-  privateKey,
-  webhooks: {
-    secret
-  },
+  // appId,
+  // privateKey,
+  // webhooks: {
+  //   secret
+  // },
   ...(enterpriseHostname && {
     Octokit: Octokit.defaults({
       baseUrl: `https://${enterpriseHostname}/api/v3`
