@@ -8,18 +8,20 @@ import { App, Octokit } from 'octokit'
 dotenv.config()
 
 // Set configured values
-const privateKey = process.env.PRIVATE_KEY
+const appId = process.env.APP_ID
+const privateKey = process.env.PRIVATE_KEY.replace(/\\n/g, '\n')
 console.log(`Private Key: ${privateKey.slice(0, 30)}...`)
+const secret = process.env.WEBHOOK_SECRET
 const enterpriseHostname = process.env.ENTERPRISE_HOSTNAME
 const messageForNewPRs = fs.readFileSync('./message.md', 'utf8')
 
 // Create an authenticated Octokit client authenticated as a GitHub App
 const app = new App({
-  // appId,
-  // privateKey,
-  // webhooks: {
-  //   secret
-  // },
+  appId,
+  privateKey,
+  webhooks: {
+    secret
+  },
   ...(enterpriseHostname && {
     Octokit: Octokit.defaults({
       baseUrl: `https://${enterpriseHostname}/api/v3`
